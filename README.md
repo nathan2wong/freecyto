@@ -1,6 +1,6 @@
 # Getting started
 
-##Mac OSX Setup (similar process for UNIX servers)
+## Mac OSX Setup (similar process for UNIX servers)
 
 1. Create a new conda environment (Python 3.7)
 ```
