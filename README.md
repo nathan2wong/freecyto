@@ -33,10 +33,10 @@ var config = {
 ```
 
 4. Replace in /templates/*.html var config with your custom config in the step above.
-• dashboard.html
-• quick_vis.html
-• upload.html
-• user.html
+* dashboard.html
+* quick_vis.html
+* upload.html
+* user.html
 
 5. Run the application
 ```
