@@ -34,7 +34,7 @@ pip install xlsxwriter
 	1. Setup a firebase account (https://console.firebase.google.com/).
 	2. Create a new project with a name of your choice.
 	3. Navigate into your project. Click `Develop` in the left panel and `Database` to create the database with default settings.
-	4. Go back to the `Project Overview` page and create a web app by clicking the web icon on the front page. Proceed with the registration (do not check the `Also set up Firebas/e Hosting` option).
+	4. Go back to the `Project Overview` page and create a web app by clicking the web icon on the front page. Proceed with the registration (do not check the `Also set up Firebase Hosting` option).
 ![Create Web app](img/create_webapp.png)
 	5. Obtain the Firebase configuration credentials in the script they provide.
 ![Get Firestore Credentials](img/get_credentials.png)
@@ -72,4 +72,4 @@ mkdir data
 python wsgi.py
 ```
 
-6. Go to localhost:1500 to view the application.
+6. Go to http://localhost:1500 to view the application.
