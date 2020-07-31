@@ -35,29 +35,25 @@ pip install xlsxwriter
 	1. Setup a firebase account (https://console.firebase.google.com/).
 	2. Create a new project with a name of your choice.
 	3. Navigate into your project. Click `Develop` in the left panel and `Database` to create the database with default settings.
-	4. Go back to the `Project Overview` page and create a web app by clicking the web icon on the front page. Proceed with the registration (do not check the `Also set up Firebase Hosting` option).
+	4. Go back to the `Project Overview` page and create a web app by clicking the web icon on the front page. Proceed with the registration (do not check the `Also set up Firebase Hosting` option). ![Create Web app](./img/create_webapp.png )
+	5. Obtain the Firebase configuration credentials in the script they provide. ![Get Firestore Credentials](./img/get_credentials.png)
+	6. Navigate to the Settings page of the new web application. Under `Service Accounts`, select Python and generate a new private key. This will download your Google Cloud service account json file. ![Get private key](./img/private_key.png)
+ 	 7. Run the following command: 
+  	```
+ 	export GOOGLE_APPLICATION_CREDENTIALS=/path/to/json
+	```
 
-  ![alt text](./img/create_webapp.png "Create Web app")
-	5. Obtain the Firebase configuration credentials in the script they provide.
-  ![alt text](./img/get_credentials.png "Get Firestore Credentials")
-	6. Navigate to the Settings page of the new web application. Under `Service Accounts`, select Python and generate a new private key. This will download your Google Cloud service account json file.
-  ![alt text](./img/private_key.png "Get private key")
-  7. Run the following command: 
-  ```
-  export GOOGLE_APPLICATION_CREDENTIALS=/path/to/json
-  ```
-
-Configuration details:
-```
-var config = {
-  apiKey: "[APIKEY]",
-  authDomain: "[project-id].firebaseapp.com",
-  databaseURL: "https://[project-id].firebaseio.com",
-  projectId: "[project-id]",
-  storageBucket: "[project-id].appspot.com",
-  messagingSenderId: "[sender-id]",
-};
-```
+	Configuration details:
+	```
+	var config = {
+	  apiKey: "[APIKEY]",
+	  authDomain: "[project-id].firebaseapp.com",
+	  databaseURL: "https://[project-id].firebaseio.com",
+	  projectId: "[project-id]",
+	  storageBucket: "[project-id].appspot.com",
+	  messagingSenderId: "[sender-id]",
+	};
+	```
 
 4. Replace in /templates/*.html var config with your custom config in the step above.
 * dashboard.html
