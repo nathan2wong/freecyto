@@ -11,9 +11,6 @@ xcode-select --install
 
 ## Mac OSX Setup (similar process for UNIX servers)
 
-###Prerequisites
-* Install Xcode toolkit
-`xcode-select --install`
 
 1. Create a new conda environment (Python 3.7)
 ```
@@ -40,15 +37,15 @@ pip install xlsxwriter
 	3. Navigate into your project. Click `Develop` in the left panel and `Database` to create the database with default settings.
 	4. Go back to the `Project Overview` page and create a web app by clicking the web icon on the front page. Proceed with the registration (do not check the `Also set up Firebase Hosting` option).
 
-![alt text](./img/create_webapp.png "Create Web app")
+  ![alt text](./img/create_webapp.png "Create Web app")
 	5. Obtain the Firebase configuration credentials in the script they provide.
-![alt text](./img/get_credentials.png "Get Firestore Credentials")
+  ![alt text](./img/get_credentials.png "Get Firestore Credentials")
 	6. Navigate to the Settings page of the new web application. Under `Service Accounts`, select Python and generate a new private key. This will download your Google Cloud service account json file.
-![alt text](./img/private_key.png "Get private key")
+  ![alt text](./img/private_key.png "Get private key")
   7. Run the following command: 
-```
-export GOOGLE_APPLICATION_CREDENTIALS=/path/to/json
-```
+  ```
+  export GOOGLE_APPLICATION_CREDENTIALS=/path/to/json
+  ```
 
 Configuration details:
 ```
