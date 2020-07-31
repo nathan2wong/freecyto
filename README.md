@@ -3,9 +3,11 @@ Application: https://freecyto.com
 
 ## Mac OSX Setup (similar process for UNIX servers)
 
-###Prerequisites
-* Install Xcode toolkit
-`xcode-select --install`
+##Prerequisites
+Install Xcode toolkit
+```
+xcode-select --install
+```
 
 1. Create a new conda environment (Python 3.7)
 ```
