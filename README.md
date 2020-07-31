@@ -3,7 +3,8 @@ Application: https://freecyto.com
 
 ## Mac OSX Setup (similar process for UNIX servers)
 
-##Prerequisites
+### Prerequisites
+
 Install Xcode toolkit
 ```
 xcode-select --install
