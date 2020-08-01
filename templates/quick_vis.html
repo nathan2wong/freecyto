@@ -46,12 +46,13 @@
     <script>
   // Your web app's Firebase configuration
   var config = {
-    apiKey: "[APIKEY]",
-    authDomain: "[project-id].firebaseapp.com",
-    databaseURL: "https://[project-id].firebaseio.com",
-    projectId: "[project-id]",
-    storageBucket: "[project-id].appspot.com",
-    messagingSenderId: "[sender-id]",
+    apiKey: "AIzaSyCrD2zujp3BBH_giX_z0S66MizZSg2PrRk",
+    authDomain: "freeflow-242823.firebaseapp.com",
+    databaseURL: "https://freeflow-242823.firebaseio.com",
+    projectId: "freeflow-242823",
+    storageBucket: "freeflow-242823.appspot.com",
+    messagingSenderId: "993314335723",
+    appId: "1:993314335723:web:68dd5406a45d3145"
   };
   // Initialize Firebase
   firebase.initializeApp(config);
@@ -107,7 +108,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ args['html_graph'] }}">
+                    <a href="{{ args['html_graph'] }}" onclick="loading();">
                         <i class="pe-7s-helm"></i>
                         <p>Advanced Analysis</p>
                     </a>
@@ -133,6 +134,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/login">Dashboard</a>
+                    <div class="navbar-brand" id="loading" hidden>
+                        <img src="{{ url_for('static', filename='img/loading.gif') }}">
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -555,6 +559,9 @@ mySiema.addPagination();
 
     });
 
+function loading(){
+    $("#loading").show();     
+} 
 
 
 
