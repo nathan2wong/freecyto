@@ -167,6 +167,8 @@
                                 {% for file in render['exp_files'] %}
                                 <li>{{ file }}</li>
                                 {% endfor %}
+                                <li>Number of points: {{ num_clusters }}</li>
+                                <li>Download: <a href="{{ sql }}" download="experiment.db">DB Dump Here</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -358,7 +360,7 @@
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <p>Please note all values have been decimated via the k-means clusters (250) to reduce browser workload.</p>
+                                        <p>Please note all values have been decimated via the k-means clusters {{ num_clusters }} to reduce browser workload.</p>
                                     </div>
                                 </div>
                             </div>
@@ -372,7 +374,7 @@
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <p>Please note all values have been decimated via the k-means clusters (250) to reduce browser workload.</p>
+                                        <p>Please note all values have been decimated via the k-means clusters {{ num_clusters }} to reduce browser workload.</p>
                                     </div>
                                 </div>
                             </div>

@@ -69,7 +69,7 @@ class SQLVis:
         manager = Manager()
         return_dict = manager.dict()
         def worker(data, clusters, file):
-            km = KMeans(n_clusters=clusters, n_init=5).fit(data)
+            km = KMeans(n_clusters=clusters, n_init=5, random_state=0).fit(data)
             clusters = km.cluster_centers_
             clustered = pd.DataFrame(clusters)
             clustered.columns = data.columns
@@ -216,13 +216,16 @@ class SQLVis:
             os.remove(os.path.join(self.directory, str("coordinate_gating_"+str(type))))
         renderer.save(body, os.path.join(self.directory, str("coordinate_gating_"+str(type))))
 
+    
+
 
 def initiateAnalysis(directory, selected_cols, available_cols, files):
     print("initiate")
     sqlexp = SQLVis(directory, selected_cols, available_cols, files)
     sqlexp.parseSQL(files)
     print("kmeans")
-    sqlexp.decimateKMeans()
+    sqlexp.num_clusters = min(max(250, len(sqlexp.exps[files[0]])//40), 5000)
+    sqlexp.decimateKMeans(sqlexp.num_clusters)
     print('before db intitate')
     sqlexp.sqldb_kmeans()
     print("after kmeans")

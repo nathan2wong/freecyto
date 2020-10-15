@@ -450,9 +450,10 @@ def html_graph():
     directory = os.path.join(CUR_DIR, str(int_hash))
     files = args['exp_files']
 
-    advanced_data_vis.initiateAnalysis(directory=directory, selected_cols=selected, available_cols=available_cols, files=files)
+    sqlexp = advanced_data_vis.initiateAnalysis(directory=directory, selected_cols=selected, available_cols=available_cols, files=files)
 
     args['option'] = 0
+    args['num_clusters'] = sqlexp.num_clusters
     return redirect(url_for('advanced_analysis', args=args))
 
 
@@ -466,6 +467,7 @@ def advanced_analysis():
     selected = args['selected']
     counter = args['int_hash']
     transformation = args['transformation']
+    num_clusters = args['num_clusters']
     def_xlim, def_ylim = 0,0
 
     render = dict(args)
@@ -478,6 +480,7 @@ def advanced_analysis():
     option = int(args['option'])
     cachebust = str(random.getrandbits(50))
     reset = url_for('reset_sql', args=args)
+    sql = url_for('uploaded_file', filename= "experiment.db", directory=directory)
 
     render['reset'] = reset
     render['cacheburst'] = cachebust
@@ -529,13 +532,13 @@ def advanced_analysis():
         print("End Adv time:", time.time())
         return render_template("dashboard.html", HTMLGraph=singleHTML, myself=files[option],
                                urls=urls, selected=selected, cachebust=cachebust, reset=reset,
-                               transformation=transformation, files=files, titles=titles, render=render)
+                               transformation=transformation, files=files, titles=titles, render=render, num_clusters=num_clusters, sql=sql)
     #Combined graphing
     if option == len(files):
         combined = url_for('uploaded_file', filename="{0}combined_gating.html".format(cachebust), directory=directory)
         return render_template("dashboard.html", HTMLGraph=combined, myself="Combined Analysis",
                                urls=urls, selected=selected, cachebust=cachebust, reset=reset,
-                               transformation=transformation, files=files, titles=titles, render=render)
+                               transformation=transformation, files=files, titles=titles, render=render, num_clusters=num_clusters, sql=sql)
     #Coordinate gating
     if option == len(files) + 1:
         form_html = url_for('advanced_analysis', args=args)
@@ -546,7 +549,7 @@ def advanced_analysis():
         return render_template("dashboard.html", graphs=coordinates,
                                myself="Coordinate Gated Analysis", urls=urls, form_html=form_html, gating_cols=gating_cols,
                                selected=selected, available_cols=available_cols, def_xlim=def_xlim, def_ylim=def_ylim, cachebust=cachebust, reset=reset,
-                               transformation=transformation, files=files, titles=titles, render=render)
+                               transformation=transformation, files=files, titles=titles, render=render, num_clusters=num_clusters, sql=sql)
     #Deep gate
     if option == len(files) + 2:
         args['cacheburst'] = cachebust
@@ -568,7 +571,7 @@ def advanced_analysis():
             full_gates.append(full_gate)
         return render_template("dashboard.html", graphs=full_gates, myself="Deep Gating Analysis",
                                form_html_channel=form_html_channel, gating_cols=gating_cols, available_cols=available_cols,
-                               urls=urls, selected=selected, reset=reset, transformation=transformation, files=files, titles=titles, render=render)
+                               urls=urls, selected=selected, reset=reset, transformation=transformation, files=files, titles=titles, render=render, num_clusters=num_clusters, sql=sql)
 
 @app.route('/gating', methods=['GET', 'POST'])
 #Need fix

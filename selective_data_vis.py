@@ -578,9 +578,15 @@ class Experiment:
         title = "t-SNE (Perplexity = {0}) of all channels for \n{1}".format(perplexity, files)
         ax.set_title(title)
         plots = []
+        X, lengths = [], []
         for file in files:
-            X = tsne.fit_transform(self.exps[file].values)
-            plots.append(ax.scatter(X[:,0], X[:,1], alpha=0.5, s=np.sqrt(12)))
+            X += [self.exps[file].values]
+            lengths.append(len(self.exps[file]))
+        X = np.concatenate(X)
+        tsneFit = tsne.fit_transform(X)
+        lastIndex = 0
+        for i in range(len(lengths)):
+            plots.append(ax.scatter(tsneFit[lastIndex:lengths[i],0], tsneFit[lastIndex:lengths[i], 1], alpha=0.5, s=np.sqrt(12)))
         plt.legend(plots, files, loc="best")
         ax.xaxis.set_major_formatter(NullFormatter())
         ax.yaxis.set_major_formatter(NullFormatter())

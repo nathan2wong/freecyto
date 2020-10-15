@@ -328,7 +328,7 @@
                                         {% for key, val in args['experimental'].items() %}
                                         <li><a href="{{ val }}" data-lity data-lity-desc="Experimental Visualization">{{ key }}</a></li>
                                         {% endfor %}
-                                        <li><a href="{{ args['csv'] }}">Download Raw Excel Spreadsheet</a></li>
+                                        <li><a href="{{ args['csv'] }}" download="rawData.xlsx">Download Raw Excel Spreadsheet</a></li>
                                     </div>
                                     </div>
                                     {% endif %}
