@@ -67,9 +67,9 @@ pip install xlsxwriter
 mkdir data
 ```
 
-5. Run the application
+6. Run the application
 ```
 python wsgi.py
 ```
 
-6. Go to http://localhost:1500 to view the application.
+7. Go to http://localhost:1500 to view the application.
