@@ -1,3 +1,6 @@
+# Freecyto 
+A python web application providing accessible and collaborative flow cytometry analysis.
+
 # Getting started
 Application: https://freecyto.com
 
@@ -34,12 +37,12 @@ pip install xlsxwriter
 	2. Create a new project with a name of your choice.
 	3. Navigate into your project. Click `Develop` in the left panel and `Database` to create the database with default settings.
 	4. Go back to the `Project Overview` page and create a web app by clicking the web icon on the front page. Proceed with the registration (do not check the `Also set up Firebase Hosting` option). ![Create Web app](./img/create_webapp.png )
-	6. Navigate to the Settings page of the new web application. Under `Service Accounts`, select Python and generate a new private key. This will download your Google Cloud service account json file. ![Get private key](./img/private_key.png)
- 	7. Run the following command in terminal: 
+	5. Navigate to the Settings page of the new web application. Under `Service Accounts`, select Python and generate a new private key. This will download your Google Cloud service account json file. ![Get private key](./img/private_key.png)
+ 	6. Run the following command in terminal: 
   	```
  	export GOOGLE_APPLICATION_CREDENTIALS=/path/to/json
 	```
-	5. Obtain the Firebase configuration credentials in the script they provide. We will use this for step 4. ![Get Firestore Credentials](./img/get_credentials.png)
+	7. Obtain the Firebase configuration credentials in the script they provide. We will use this for step 4. ![Get Firestore Credentials](./img/get_credentials.png)
 
 4. Replace in /templates/*.html var config with your custom config in the step above.
 
@@ -64,9 +67,9 @@ pip install xlsxwriter
 mkdir data
 ```
 
-5. Run the application
+6. Run the application
 ```
 python wsgi.py
 ```
 
-6. Go to http://localhost:1500 to view the application.
+7. Go to http://localhost:1500 to view the application.
