@@ -3,6 +3,7 @@ A python web application providing accessible and collaborative flow cytometry a
 
 # Getting started
 Application: https://freecyto.com
+Demo: https://www.youtube.com/watch?v=JlIVgxh4_YA
 
 ### Prerequisites
 
@@ -72,4 +73,4 @@ mkdir data
 python wsgi.py
 ```
 
-7. Go to http://localhost:1500 to view the application.
+7. Go to http://localhost:1500 to view the application. 
