@@ -69,6 +69,40 @@
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body onload="submitChanges()">
+<div class="modal fade" id="channels" tabindex="-1" role="dialog" aria-labelledby="channels" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Change Channels</h4>
+            <p>Select at least 2 channels to continue.</p>
+        </div>
+        <div class="modal-body">
+            <form action="{{ args['form_html'] }}" method="post">
+            <div class="card">
+                <div class="card-body" style="text-align:center" id="vis">
+
+                    {% set count = [0] %}
+                    {% for val in args['available_cols'] %}
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="channels" id="{{ count[0] }}" value="{{ count[0] }}">
+                        <label class="form-check-label" for="{{ count[0] }}">{{ val }}</label>
+                    </div>
+                    {% if count.append(count.pop() + 1) %}{% endif %} {# increment count by 1 #}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button  type="button" class="btn btn-secondary" onclick="unselectEverything()">Unselect All</button>
+                <input type="submit" id="Button" class="btn btn-primary" value="Submit Changes" disabled="" onclick="loading();">
+            </div>
+
+        </form>
+        </div>
+        </div>
+    </div>
+</div>
 <div class="wrapper">
 
     <div class="sidebar" data-color="purple" data-image="{{ url_for('static',filename='assets2/img/sidebar-5.jpg') }}">
@@ -141,6 +175,9 @@
                 <div class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <button type="button" class="btn btn-primary" id="channels-btn" data-toggle="modal" data-target= "#channels">Change Channels</button>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <p>
