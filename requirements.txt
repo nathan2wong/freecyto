@@ -50,7 +50,7 @@ pyrsistent==0.15.7
 python-dateutil==2.7.5
 pytz==2019.3
 pyviz-comms==0.7.3
-PyYAML==5.3
+PyYAML==5.4
 requests==2.22.0
 rsa==4.0
 scikit-learn==0.20.1
