@@ -63,7 +63,7 @@ tornado==6.0.3
 traitlets==4.3.3
 traits==4.6.0
 traitsui==6.0.0
-urllib3==1.25.8
+urllib3==1.26.5
 Werkzeug==1.0.0
 yapf==0.22.0
 zipp==2.2.0
